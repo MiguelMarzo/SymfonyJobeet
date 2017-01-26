@@ -1,0 +1,13 @@
+frontend_job:
+    resource: "@FrontendBundle/Controller/JobController.php"
+    type:     annotation
+
+frontend:
+    resource: "@FrontendBundle/Resources/config/routing.yml"
+    prefix: /
+ 
+app:
+    resource: "@FrontendBundle/Controller/"
+    type: annotation 
+
+    

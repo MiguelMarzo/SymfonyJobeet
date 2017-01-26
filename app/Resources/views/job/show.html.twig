@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+{% block content -%}
+    <div id="content" class="jobs">
+        <table>
+            <thead>
+                <tr>
+                    <th hidden="true" >Localización</th>
+                    <th hidden="true" >Cargo</th>
+                    <th hidden="true" >Empresa</th>
+                    <th hidden="true" >Fecha creación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="location">{{ entity.location }}</td>
+                    <td class="position">{{ entity.position }}</td>
+                    <td class="company">{{ entity.company }}</td>
+
+                    <td hidden="true" >
+                        <small>publicado {{ entity.expiresAt|date("m/d/Y") }}</small>
+                    </td>
+                    <td>
+                        <div hidden="true" style="padding: 20px 0">
+                            <ul>
+                                <li>
+                                    <a href="{{ path('job_show', { 'id': entity.id })
+                                       }}">mostrar</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('job_edit', { 'id': entity.id })
+                                       }}">editar</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+{% block content -%}
+    <h1>Job creation</h1>
+    <div id="job_form">
+        {{ form(form) }}
+    </div>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('job_index') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
+{% endblock %} 
