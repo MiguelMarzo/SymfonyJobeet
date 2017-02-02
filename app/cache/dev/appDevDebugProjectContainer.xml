@@ -17,6 +17,8 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="FrontendBundle">FrontendBundle\FrontendBundle</parameter>
+      <parameter key="MopaBootstrapBundle">Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle</parameter>
+      <parameter key="KnpMenuBundle">Knp\Bundle\MenuBundle\KnpMenuBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -294,6 +296,7 @@
     <parameter key="twig.exception_listener.controller">twig.controller.exception:showAction</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
+      <parameter>MopaBootstrapBundle:Form:fields.html.twig</parameter>
     </parameter>
     <parameter key="monolog.logger.class">Symfony\Bridge\Monolog\Logger</parameter>
     <parameter key="monolog.gelf.publisher.class">Gelf\MessagePublisher</parameter>
@@ -501,6 +504,123 @@
     <parameter key="sensio_framework_extra.converter.doctrine.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter</parameter>
     <parameter key="sensio_framework_extra.converter.datetime.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter</parameter>
     <parameter key="sensio_framework_extra.view.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener</parameter>
+    <parameter key="mopa_bootstrap.bootstrap.install_path">Resources/public/bootstrap</parameter>
+    <parameter key="mopa_bootstrap.twig.extension.form.class">Mopa\Bundle\BootstrapBundle\Twig\FormExtension</parameter>
+    <parameter key="mopa_bootstrap.twig.extension.icon.class">Mopa\Bundle\BootstrapBundle\Twig\IconExtension</parameter>
+    <parameter key="mopa_bootstrap.twig.extension.flash.class">Mopa\Bundle\BootstrapBundle\Twig\FlashExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type_extension.embed_form.class">Mopa\Bundle\BootstrapBundle\Form\Extension\EmbedFormExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type_extension.static_text.class">Mopa\Bundle\BootstrapBundle\Form\Extension\StaticTextExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type_extension.offset_button.class">Mopa\Bundle\BootstrapBundle\Form\Extension\OffsetButtonExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type_extension.button.class">Mopa\Bundle\BootstrapBundle\Form\Extension\IconButtonExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type_extension.help.class">Mopa\Bundle\BootstrapBundle\Form\Extension\HelpFormTypeExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type_extension.legend.class">Mopa\Bundle\BootstrapBundle\Form\Extension\LegendFormTypeExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type_extension.error.class">Mopa\Bundle\BootstrapBundle\Form\Extension\ErrorTypeFormTypeExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type_extension.widget.class">Mopa\Bundle\BootstrapBundle\Form\Extension\WidgetFormTypeExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type_extension.horizontal.class">Mopa\Bundle\BootstrapBundle\Form\Extension\HorizontalFormTypeExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type_extension.widget_collection.class">Mopa\Bundle\BootstrapBundle\Form\Extension\WidgetCollectionFormTypeExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type_extension.date.class">Mopa\Bundle\BootstrapBundle\Form\Extension\DateTypeExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type_extension.datetime.class">Mopa\Bundle\BootstrapBundle\Form\Extension\DatetimeTypeExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type_extension.time.class">Mopa\Bundle\BootstrapBundle\Form\Extension\TimeTypeExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type_extension.tabbed.class">Mopa\Bundle\BootstrapBundle\Form\Extension\TabbedFormTypeExtension</parameter>
+    <parameter key="mopa_bootstrap.form.type.tab.class">Mopa\Bundle\BootstrapBundle\Form\Type\TabType</parameter>
+    <parameter key="mopa_bootstrap.form.type.form_actions.class">Mopa\Bundle\BootstrapBundle\Form\Type\FormActionsType</parameter>
+    <parameter key="mopa_bootstrap.form.templating">MopaBootstrapBundle:Form:fields.html.twig</parameter>
+    <parameter key="mopa_bootstrap.form.horizontal">true</parameter>
+    <parameter key="mopa_bootstrap.form.horizontal_label_class">col-sm-3</parameter>
+    <parameter key="mopa_bootstrap.form.horizontal_label_offset_class">col-sm-offset-3</parameter>
+    <parameter key="mopa_bootstrap.form.horizontal_input_wrapper_class">col-sm-9</parameter>
+    <parameter key="mopa_bootstrap.form.date_wrapper_class.year">col-xs-4</parameter>
+    <parameter key="mopa_bootstrap.form.date_wrapper_class.month">col-xs-4</parameter>
+    <parameter key="mopa_bootstrap.form.date_wrapper_class.day">col-xs-4</parameter>
+    <parameter key="mopa_bootstrap.form.render_fieldset">true</parameter>
+    <parameter key="mopa_bootstrap.form.render_collection_item">true</parameter>
+    <parameter key="mopa_bootstrap.form.show_legend">true</parameter>
+    <parameter key="mopa_bootstrap.form.show_child_legend">false</parameter>
+    <parameter key="mopa_bootstrap.form.legend_tag">legend</parameter>
+    <parameter key="mopa_bootstrap.form.checkbox_label">both</parameter>
+    <parameter key="mopa_bootstrap.form.render_optional_text">true</parameter>
+    <parameter key="mopa_bootstrap.form.render_required_asterisk">false</parameter>
+    <parameter key="mopa_bootstrap.form.error_type">null</parameter>
+    <parameter key="mopa_bootstrap.form.tabs.class">nav nav-tabs</parameter>
+    <parameter key="mopa_bootstrap.form.help_widget.popover" type="collection">
+      <parameter key="title">null</parameter>
+      <parameter key="content">null</parameter>
+      <parameter key="trigger">hover</parameter>
+      <parameter key="toggle">popover</parameter>
+      <parameter key="placement">right</parameter>
+      <parameter key="selector">null</parameter>
+    </parameter>
+    <parameter key="mopa_bootstrap.form.help_label.tooltip" type="collection">
+      <parameter key="title">null</parameter>
+      <parameter key="text">null</parameter>
+      <parameter key="icon">info-sign</parameter>
+      <parameter key="placement">top</parameter>
+    </parameter>
+    <parameter key="mopa_bootstrap.form.help_label.popover" type="collection">
+      <parameter key="title">null</parameter>
+      <parameter key="content">null</parameter>
+      <parameter key="text">null</parameter>
+      <parameter key="icon">info-sign</parameter>
+      <parameter key="placement">top</parameter>
+    </parameter>
+    <parameter key="mopa_bootstrap.form.help_block.tooltip" type="collection">
+      <parameter key="title">null</parameter>
+      <parameter key="text">null</parameter>
+      <parameter key="icon">info-sign</parameter>
+      <parameter key="placement">top</parameter>
+    </parameter>
+    <parameter key="mopa_bootstrap.form.help_block.popover" type="collection">
+      <parameter key="title">null</parameter>
+      <parameter key="content">null</parameter>
+      <parameter key="text">null</parameter>
+      <parameter key="icon">info-sign</parameter>
+      <parameter key="placement">top</parameter>
+    </parameter>
+    <parameter key="mopa_bootstrap.form.collection.widget_remove_btn" type="collection">
+      <parameter key="attr" type="collection">
+        <parameter key="class">btn btn-default</parameter>
+      </parameter>
+      <parameter key="wrapper_div" type="collection">
+        <parameter key="class">form-group</parameter>
+      </parameter>
+      <parameter key="horizontal_wrapper_div" type="collection">
+        <parameter key="class">col-sm-3 col-sm-offset-3</parameter>
+      </parameter>
+      <parameter key="label">remove_item</parameter>
+      <parameter key="icon">null</parameter>
+      <parameter key="icon_inverted">false</parameter>
+    </parameter>
+    <parameter key="mopa_bootstrap.form.collection.widget_add_btn" type="collection">
+      <parameter key="attr" type="collection">
+        <parameter key="class">btn btn-default</parameter>
+      </parameter>
+      <parameter key="label">add_item</parameter>
+      <parameter key="icon">null</parameter>
+      <parameter key="icon_inverted">false</parameter>
+    </parameter>
+    <parameter key="mopa_bootstrap.twig.extension.menu.class">Mopa\Bundle\BootstrapBundle\Twig\MenuExtension</parameter>
+    <parameter key="mopa_bootstrap.menu.extension.class">Mopa\Bundle\BootstrapBundle\Menu\Factory\MenuExtension</parameter>
+    <parameter key="mopa_bootstrap.menu.enabled">true</parameter>
+    <parameter key="mopa_bootstrap.menu.template">MopaBootstrapBundle:Menu:menu.html.twig</parameter>
+    <parameter key="mopa_bootstrap.icons.icon_set">glyphicons</parameter>
+    <parameter key="mopa_bootstrap.icons.shortcut">icon</parameter>
+    <parameter key="knp_menu.factory.class">Knp\Menu\MenuFactory</parameter>
+    <parameter key="knp_menu.factory_extension.routing.class">Knp\Menu\Integration\Symfony\RoutingExtension</parameter>
+    <parameter key="knp_menu.helper.class">Knp\Menu\Twig\Helper</parameter>
+    <parameter key="knp_menu.matcher.class">Knp\Menu\Matcher\Matcher</parameter>
+    <parameter key="knp_menu.menu_provider.chain.class">Knp\Menu\Provider\ChainProvider</parameter>
+    <parameter key="knp_menu.menu_provider.container_aware.class">Knp\Bundle\MenuBundle\Provider\ContainerAwareProvider</parameter>
+    <parameter key="knp_menu.menu_provider.builder_alias.class">Knp\Bundle\MenuBundle\Provider\BuilderAliasProvider</parameter>
+    <parameter key="knp_menu.renderer_provider.class">Knp\Bundle\MenuBundle\Renderer\ContainerAwareProvider</parameter>
+    <parameter key="knp_menu.renderer.list.class">Knp\Menu\Renderer\ListRenderer</parameter>
+    <parameter key="knp_menu.renderer.list.options" type="collection"/>
+    <parameter key="knp_menu.listener.voters.class">Knp\Bundle\MenuBundle\EventListener\VoterInitializerListener</parameter>
+    <parameter key="knp_menu.voter.router.class">Knp\Menu\Matcher\Voter\RouteVoter</parameter>
+    <parameter key="knp_menu.twig.extension.class">Knp\Menu\Twig\MenuExtension</parameter>
+    <parameter key="knp_menu.renderer.twig.class">Knp\Menu\Renderer\TwigRenderer</parameter>
+    <parameter key="knp_menu.renderer.twig.options" type="collection"/>
+    <parameter key="knp_menu.renderer.twig.template">knp_menu.html.twig</parameter>
+    <parameter key="knp_menu.default_renderer">twig</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -1101,6 +1221,10 @@
               <argument key="Symfony\Component\Form\Extension\Core\Type\CurrencyType">form.type.currency</argument>
               <argument key="entity">form.type.entity</argument>
               <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType">form.type.entity</argument>
+              <argument key="mopa_bootstrap.form.type.tab">mopa_bootstrap.form.type.tab</argument>
+              <argument key="Mopa\Bundle\BootstrapBundle\Form\Type\TabType">mopa_bootstrap.form.type.tab</argument>
+              <argument key="mopa_bootstrap.form.type.form_actions">mopa_bootstrap.form.type.form_actions</argument>
+              <argument key="Mopa\Bundle\BootstrapBundle\Form\Type\FormActionsType">mopa_bootstrap.form.type.form_actions</argument>
             </argument>
             <argument type="collection">
               <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="collection">
@@ -1108,12 +1232,34 @@
                 <argument>form.type_extension.form.validator</argument>
                 <argument>form.type_extension.csrf</argument>
                 <argument>form.type_extension.form.data_collector</argument>
+                <argument>mopa_bootstrap.form.type_extension.embed_form</argument>
+                <argument>mopa_bootstrap.form.type_extension.static_text</argument>
+                <argument>mopa_bootstrap.form.type_extension.help</argument>
+                <argument>mopa_bootstrap.form.type_extension.legend</argument>
+                <argument>mopa_bootstrap.form.type_extension.error</argument>
+                <argument>mopa_bootstrap.form.type_extension.widget</argument>
+                <argument>mopa_bootstrap.form.type_extension.horizontal</argument>
+                <argument>mopa_bootstrap.form.type_extension.widget_collection</argument>
+                <argument>mopa_bootstrap.form.type_extension.tabbed</argument>
               </argument>
               <argument key="Symfony\Component\Form\Extension\Core\Type\RepeatedType" type="collection">
                 <argument>form.type_extension.repeated.validator</argument>
               </argument>
               <argument key="Symfony\Component\Form\Extension\Core\Type\SubmitType" type="collection">
                 <argument>form.type_extension.submit.validator</argument>
+              </argument>
+              <argument key="Symfony\Component\Form\Extension\Core\Type\ButtonType" type="collection">
+                <argument>mopa_bootstrap.form.type_extension.offset_button</argument>
+                <argument>mopa_bootstrap.form.type_extension.button</argument>
+              </argument>
+              <argument key="Symfony\Component\Form\Extension\Core\Type\DateType" type="collection">
+                <argument>mopa_bootstrap.form.type_extension.date</argument>
+              </argument>
+              <argument key="Symfony\Component\Form\Extension\Core\Type\DateTimeType" type="collection">
+                <argument>mopa_bootstrap.form.type_extension.datetime</argument>
+              </argument>
+              <argument key="Symfony\Component\Form\Extension\Core\Type\TimeType" type="collection">
+                <argument>mopa_bootstrap.form.type_extension.time</argument>
               </argument>
             </argument>
             <argument type="collection">
@@ -1628,6 +1774,14 @@
         </argument>
         <argument>0</argument>
       </call>
+      <call method="addListenerService">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument>knp_menu.listener.voters</argument>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
       <call method="addSubscriberService">
         <argument>response_listener</argument>
         <argument>Symfony\Component\HttpKernel\EventListener\ResponseListener</argument>
@@ -1752,7 +1906,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5889e9c938fc53.53842296</argument>
+            <argument>58937c78eddb99.28277566</argument>
           </service>
         </argument>
       </argument>
@@ -1881,7 +2035,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>5889e9c938fc53.53842296</argument>
+            <argument>58937c78eddb99.28277566</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2063,6 +2217,7 @@
                   <service class="Symfony\Bridge\Twig\Form\TwigRendererEngine" public="false">
                     <argument type="collection">
                       <argument>form_div_layout.html.twig</argument>
+                      <argument>MopaBootstrapBundle:Form:fields.html.twig</argument>
                     </argument>
                   </service>
                 </argument>
@@ -2083,6 +2238,26 @@
         <argument type="service">
           <service class="Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension" public="false">
             <tag name="twig.extension"/>
+          </service>
+        </argument>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="mopa_bootstrap.twig.extension.bootstrap_form"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="mopa_bootstrap.twig.extension.bootstrap_icon"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="mopa_bootstrap.twig.extension.bootstrap_flash"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="mopa_bootstrap.twig.extension.menu"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service">
+          <service class="Knp\Menu\Twig\MenuExtension" public="false">
+            <tag name="twig.extension"/>
+            <argument type="service" id="knp_menu.helper"/>
           </service>
         </argument>
       </call>
@@ -2412,6 +2587,228 @@
       <argument type="service" id="security.token_storage" on-invalid="null"/>
       <argument type="service" id="security.authorization_checker" on-invalid="null"/>
     </service>
+    <service id="mopa_bootstrap.twig.extension.bootstrap_form" class="Mopa\Bundle\BootstrapBundle\Twig\FormExtension">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="mopa_bootstrap.twig.extension.bootstrap_icon" class="Mopa\Bundle\BootstrapBundle\Twig\IconExtension">
+      <tag name="twig.extension"/>
+      <argument>glyphicons</argument>
+      <argument>icon</argument>
+    </service>
+    <service id="mopa_bootstrap.twig.extension.bootstrap_flash" class="Mopa\Bundle\BootstrapBundle\Twig\FlashExtension">
+      <tag name="twig.extension"/>
+      <argument type="collection">
+        <argument key="success">success</argument>
+        <argument key="error">danger</argument>
+        <argument key="danger">danger</argument>
+        <argument key="warning">warning</argument>
+        <argument key="warn">warning</argument>
+        <argument key="info">info</argument>
+        <argument key="notice">info</argument>
+      </argument>
+    </service>
+    <service id="mopa_bootstrap.form.type_extension.embed_form" class="Mopa\Bundle\BootstrapBundle\Form\Extension\EmbedFormExtension">
+      <tag name="form.type_extension" alias="form" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
+    </service>
+    <service id="mopa_bootstrap.form.type_extension.static_text" class="Mopa\Bundle\BootstrapBundle\Form\Extension\StaticTextExtension">
+      <tag name="form.type_extension" alias="form" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
+    </service>
+    <service id="mopa_bootstrap.form.type_extension.offset_button" class="Mopa\Bundle\BootstrapBundle\Form\Extension\OffsetButtonExtension">
+      <tag name="form.type_extension" alias="button" extended_type="Symfony\Component\Form\Extension\Core\Type\ButtonType" extended-type="Symfony\Component\Form\Extension\Core\Type\ButtonType"/>
+    </service>
+    <service id="mopa_bootstrap.form.type_extension.button" class="Mopa\Bundle\BootstrapBundle\Form\Extension\IconButtonExtension">
+      <tag name="form.type_extension" alias="button" extended_type="Symfony\Component\Form\Extension\Core\Type\ButtonType" extended-type="Symfony\Component\Form\Extension\Core\Type\ButtonType"/>
+    </service>
+    <service id="mopa_bootstrap.form.type_extension.help" class="Mopa\Bundle\BootstrapBundle\Form\Extension\HelpFormTypeExtension">
+      <tag name="form.type_extension" alias="form" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
+      <argument type="collection">
+        <argument key="help_block_tooltip" type="collection">
+          <argument key="title">null</argument>
+          <argument key="text">null</argument>
+          <argument key="icon">info-sign</argument>
+          <argument key="placement">top</argument>
+        </argument>
+        <argument key="help_block_popover" type="collection">
+          <argument key="title">null</argument>
+          <argument key="content">null</argument>
+          <argument key="text">null</argument>
+          <argument key="icon">info-sign</argument>
+          <argument key="placement">top</argument>
+        </argument>
+        <argument key="help_label_tooltip" type="collection">
+          <argument key="title">null</argument>
+          <argument key="text">null</argument>
+          <argument key="icon">info-sign</argument>
+          <argument key="placement">top</argument>
+        </argument>
+        <argument key="help_label_popover" type="collection">
+          <argument key="title">null</argument>
+          <argument key="content">null</argument>
+          <argument key="text">null</argument>
+          <argument key="icon">info-sign</argument>
+          <argument key="placement">top</argument>
+        </argument>
+        <argument key="help_widget_popover" type="collection">
+          <argument key="title">null</argument>
+          <argument key="content">null</argument>
+          <argument key="trigger">hover</argument>
+          <argument key="toggle">popover</argument>
+          <argument key="placement">right</argument>
+          <argument key="selector">null</argument>
+        </argument>
+      </argument>
+    </service>
+    <service id="mopa_bootstrap.form.type_extension.legend" class="Mopa\Bundle\BootstrapBundle\Form\Extension\LegendFormTypeExtension">
+      <tag name="form.type_extension" alias="form" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
+      <argument type="collection">
+        <argument key="render_fieldset">true</argument>
+        <argument key="show_legend">true</argument>
+        <argument key="show_child_legend">false</argument>
+        <argument key="legend_tag">legend</argument>
+        <argument key="render_required_asterisk">false</argument>
+        <argument key="render_optional_text">true</argument>
+      </argument>
+    </service>
+    <service id="mopa_bootstrap.form.type_extension.error" class="Mopa\Bundle\BootstrapBundle\Form\Extension\ErrorTypeFormTypeExtension">
+      <tag name="form.type_extension" alias="form" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
+      <argument type="collection">
+        <argument key="error_type">null</argument>
+      </argument>
+    </service>
+    <service id="mopa_bootstrap.form.type_extension.widget" class="Mopa\Bundle\BootstrapBundle\Form\Extension\WidgetFormTypeExtension">
+      <tag name="form.type_extension" alias="form" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
+      <argument type="collection">
+        <argument key="checkbox_label">both</argument>
+      </argument>
+    </service>
+    <service id="mopa_bootstrap.form.type_extension.horizontal" class="Mopa\Bundle\BootstrapBundle\Form\Extension\HorizontalFormTypeExtension">
+      <tag name="form.type_extension" alias="form" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
+      <argument type="collection">
+        <argument key="horizontal">true</argument>
+        <argument key="horizontal_label_class">col-sm-3</argument>
+        <argument key="horizontal_label_offset_class">col-sm-offset-3</argument>
+        <argument key="horizontal_input_wrapper_class">col-sm-9</argument>
+      </argument>
+    </service>
+    <service id="mopa_bootstrap.form.type_extension.widget_collection" class="Mopa\Bundle\BootstrapBundle\Form\Extension\WidgetCollectionFormTypeExtension">
+      <tag name="form.type_extension" alias="form" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
+      <argument type="collection">
+        <argument key="render_collection_item">true</argument>
+        <argument key="widget_add_btn" type="collection">
+          <argument key="attr" type="collection">
+            <argument key="class">btn btn-default</argument>
+          </argument>
+          <argument key="label">add_item</argument>
+          <argument key="icon">null</argument>
+          <argument key="icon_inverted">false</argument>
+        </argument>
+        <argument key="widget_remove_btn" type="collection">
+          <argument key="attr" type="collection">
+            <argument key="class">btn btn-default</argument>
+          </argument>
+          <argument key="wrapper_div" type="collection">
+            <argument key="class">form-group</argument>
+          </argument>
+          <argument key="horizontal_wrapper_div" type="collection">
+            <argument key="class">col-sm-3 col-sm-offset-3</argument>
+          </argument>
+          <argument key="label">remove_item</argument>
+          <argument key="icon">null</argument>
+          <argument key="icon_inverted">false</argument>
+        </argument>
+      </argument>
+    </service>
+    <service id="mopa_bootstrap.form.type_extension.date" class="Mopa\Bundle\BootstrapBundle\Form\Extension\DateTypeExtension">
+      <tag name="form.type_extension" alias="date" extended_type="Symfony\Component\Form\Extension\Core\Type\DateType" extended-type="Symfony\Component\Form\Extension\Core\Type\DateType"/>
+      <argument type="collection">
+        <argument key="date_wrapper_class" type="collection">
+          <argument key="year">col-xs-4</argument>
+          <argument key="month">col-xs-4</argument>
+          <argument key="day">col-xs-4</argument>
+        </argument>
+      </argument>
+    </service>
+    <service id="mopa_bootstrap.form.type_extension.datetime" class="Mopa\Bundle\BootstrapBundle\Form\Extension\DatetimeTypeExtension">
+      <tag name="form.type_extension" alias="datetime" extended_type="Symfony\Component\Form\Extension\Core\Type\DateTimeType" extended-type="Symfony\Component\Form\Extension\Core\Type\DateTimeType"/>
+    </service>
+    <service id="mopa_bootstrap.form.type_extension.time" class="Mopa\Bundle\BootstrapBundle\Form\Extension\TimeTypeExtension">
+      <tag name="form.type_extension" alias="time" extended_type="Symfony\Component\Form\Extension\Core\Type\TimeType" extended-type="Symfony\Component\Form\Extension\Core\Type\TimeType"/>
+    </service>
+    <service id="mopa_bootstrap.form.type_extension.tabbed" class="Mopa\Bundle\BootstrapBundle\Form\Extension\TabbedFormTypeExtension">
+      <tag name="form.type_extension" alias="form" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
+      <argument type="service" id="form.factory"/>
+      <argument type="collection">
+        <argument key="class">nav nav-tabs</argument>
+      </argument>
+    </service>
+    <service id="mopa_bootstrap.form.type.tab" class="Mopa\Bundle\BootstrapBundle\Form\Type\TabType">
+      <tag name="form.type"/>
+    </service>
+    <service id="mopa_bootstrap.form.type.form_actions" class="Mopa\Bundle\BootstrapBundle\Form\Type\FormActionsType">
+      <tag name="form.type"/>
+    </service>
+    <service id="mopa_bootstrap.twig.extension.menu" class="Mopa\Bundle\BootstrapBundle\Twig\MenuExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_menu.helper"/>
+      <argument>MopaBootstrapBundle:Menu:menu.html.twig</argument>
+    </service>
+    <service id="mopa_bootstrap.menu.extension" class="Mopa\Bundle\BootstrapBundle\Menu\Factory\MenuExtension">
+      <tag name="knp_menu.factory_extension" priority="-100"/>
+    </service>
+    <service id="knp_menu.factory" class="Knp\Menu\MenuFactory">
+      <call method="addExtension">
+        <argument type="service" id="mopa_bootstrap.menu.extension"/>
+        <argument>-100</argument>
+      </call>
+      <call method="addExtension">
+        <argument type="service">
+          <service class="Knp\Menu\Integration\Symfony\RoutingExtension" public="false">
+            <tag name="knp_menu.factory_extension"/>
+            <argument type="service" id="router"/>
+          </service>
+        </argument>
+        <argument>0</argument>
+      </call>
+    </service>
+    <service id="knp_menu.helper" class="Knp\Menu\Twig\Helper" public="false">
+      <argument type="service" id="knp_menu.renderer_provider"/>
+      <argument type="service" id="knp_menu.menu_provider"/>
+    </service>
+    <service id="knp_menu.matcher" class="Knp\Menu\Matcher\Matcher">
+      <call method="addVoter">
+        <argument type="service" id="knp_menu.voter.router"/>
+      </call>
+    </service>
+    <service id="knp_menu.renderer_provider" class="Knp\Bundle\MenuBundle\Renderer\ContainerAwareProvider">
+      <argument type="service" id="service_container"/>
+      <argument>twig</argument>
+      <argument type="collection">
+        <argument key="list">knp_menu.renderer.list</argument>
+        <argument key="twig">knp_menu.renderer.twig</argument>
+      </argument>
+    </service>
+    <service id="knp_menu.renderer.list" class="Knp\Menu\Renderer\ListRenderer">
+      <tag name="knp_menu.renderer" alias="list"/>
+      <argument type="service" id="knp_menu.matcher"/>
+      <argument type="collection"/>
+      <argument>UTF-8</argument>
+    </service>
+    <service id="knp_menu.listener.voters" class="Knp\Bundle\MenuBundle\EventListener\VoterInitializerListener">
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <call method="addVoter">
+        <argument type="service" id="knp_menu.voter.router"/>
+      </call>
+    </service>
+    <service id="knp_menu.voter.router" class="Knp\Menu\Matcher\Voter\RouteVoter">
+      <tag name="knp_menu.voter" request="1"/>
+    </service>
+    <service id="knp_menu.renderer.twig" class="Knp\Menu\Renderer\TwigRenderer">
+      <tag name="knp_menu.renderer" alias="twig"/>
+      <argument type="service" id="twig"/>
+      <argument>knp_menu.html.twig</argument>
+      <argument type="service" id="knp_menu.matcher"/>
+      <argument type="collection"/>
+    </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig" priority="240"/>
       <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
@@ -2724,6 +3121,14 @@
         <argument>Frontend</argument>
       </call>
       <call method="addPath">
+        <argument>C:\xampp\htdocs\symJobeet\app/Resources/MopaBootstrapBundle/views</argument>
+        <argument>MopaBootstrap</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\symJobeet\vendor\mopa\bootstrap-bundle\Mopa\Bundle\BootstrapBundle/Resources/views</argument>
+        <argument>MopaBootstrap</argument>
+      </call>
+      <call method="addPath">
         <argument>C:\xampp\htdocs\symJobeet\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
@@ -2736,6 +3141,9 @@
       </call>
       <call method="addPath">
         <argument>C:\xampp\htdocs\symJobeet\vendor\symfony\symfony\src\Symfony\Bridge\Twig/Resources/views/Form</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\symJobeet\vendor\knplabs\knp-menu\src\Knp\Menu/Resources/views</argument>
       </call>
     </service>
     <service id="logger" class="Symfony\Bridge\Monolog\Logger">
@@ -2808,6 +3216,25 @@
       <call method="setSourceIp">
         <argument>null</argument>
       </call>
+    </service>
+    <service id="knp_menu.menu_provider" class="Knp\Menu\Provider\ChainProvider">
+      <argument type="collection">
+        <argument type="service">
+          <service class="Knp\Bundle\MenuBundle\Provider\ContainerAwareProvider" public="false">
+            <tag name="knp_menu.provider"/>
+            <argument type="service" id="service_container"/>
+            <argument type="collection"/>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Knp\Bundle\MenuBundle\Provider\BuilderAliasProvider" public="false">
+            <tag name="knp_menu.provider"/>
+            <argument type="service" id="kernel"/>
+            <argument type="service" id="service_container"/>
+            <argument type="service" id="knp_menu.factory"/>
+          </service>
+        </argument>
+      </argument>
     </service>
     <service id="session.storage" alias="session.storage.native"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher"/>

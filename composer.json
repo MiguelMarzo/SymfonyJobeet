@@ -4,8 +4,10 @@
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-4": { "": "src/" },
-        "files": [ "app/AppKernel.php" ]
+        "psr-4": {
+            "": "src/"
+        },
+        "files": ["app/AppKernel.php"]
     },
     "require": {
         "php": ">=5.3.9",
@@ -16,7 +18,10 @@
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "mopa/bootstrap-bundle": "*",
+        "twbs/bootstrap": "*",
+        "knplabs/knp-menu-bundle": "*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
@@ -53,5 +58,23 @@
         "branch-alias": {
             "dev-master": "2.8-dev"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "version": "2.2.1",
+                "name": "twitter/bootstrap",
+                "source": {
+                    "url": "https://github.com/twitter/bootstrap.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "dist": {
+                    "url": "https://github.com/twitter/bootstrap/zipball/master",
+                    "type": "zip"
+                }
+            }
+        }
+    ]
 }

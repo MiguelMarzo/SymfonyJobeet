@@ -66,3 +66,13 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# Mopa Bootstrap
+mopa_bootstrap:
+    form: ~ # Adds twig form theme support
+    menu: ~ # enables twig helpers for menu 
+    
+assetic:
+ debug: "%kernel.debug%"
+ use_controller: false
+ bundles: [ FrontendBundle ] 

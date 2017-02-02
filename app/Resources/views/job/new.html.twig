@@ -1,12 +1,22 @@
-{% extends '::base.html.twig' %}
+{% extends 'MopaBootstrapBundle::layout.html.twig' %}
 {% block content -%}
+    {% stylesheets filter='cssrewrite,?yui_css'
+
+ '@FrontendBundle/Resources/public/bootstrap/css/bootstrap.css'
+    %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet"
+          media="screen" />
+    {% endstylesheets %}
     <h1>Job creation</h1>
-    <div id="job_form">
-        {{ form(form) }}
+    <div id="job_form" class="form-horizontal">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_widget(form.submit, {'label': 'Guardar'}) }}
+        {{ form_end(form) }}
     </div>
     <ul class="record_actions">
         <li>
-            <a href="{{ path('job_index') }}">
+            <a href="{{ path('job') }}">
                 Back to the list
             </a>
         </li>

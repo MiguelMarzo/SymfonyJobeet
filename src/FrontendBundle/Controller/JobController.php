@@ -14,49 +14,59 @@ use FrontendBundle\Form\JobType;
  *
  * @Route("/job")
  */
-class JobController extends Controller
-{
+class JobController extends Controller {
+
     /**
      * Lists all Job entities.
      *
      * @Route("/", name="job_index")
      * @Method("GET")
      */
-    public function indexAction()
-    {
+    public function indexAction() {
         $em = $this->getDoctrine()->getManager();
 
         $jobs = $em->getRepository('FrontendBundle:Job')->findAll();
 
         return $this->render('job/index.html.twig', array(
-            'jobs' => $jobs,
+                    'jobs' => $jobs,
         ));
     }
 
     /**
      * Creates a new Job entity.
      *
-     * @Route("/new", name="job_new")
-     * @Method({"GET", "POST"})
+     * @Route("/", name="job_create")
+     * @Method("POST")
+     * @Template("FrontendBundle:Job:new.html.twig")
      */
-    public function newAction(Request $request)
-    {
-        $job = new Job();
-        $form = $this->createForm(new JobType(), $job);
+    public function createAction(Request $request) {
+        $entity = new Job();
+        $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($job);
-            $em->flush();
-
-            return $this->redirectToRoute('job_show', array('id' => $job->getId()));
-        }
-
-        return $this->render('job/new.html.twig', array(
-            'job' => $job,
+        // Almacenamos en una variable la lectura de los valores del formulario
+        $data = $form->getData();
+        // Completamos nuestra entidad auxiliar con los valores
+        $mysqldate = date("Y-m-d H:i:s");
+        $entity->setExpiresAt(new \DateTime($mysqldate));
+        $entity->setCreatedAt(new \DateTime($mysqldate));
+        $entity->setUpdatedAt(new \DateTime($mysqldate));
+        $entity->setToken('aaaa');
+        // Generamos una categoría
+        $auxcategoria = new \FrontendBundle\Entity\Category();
+        $auxcategoria->setName("genérica");
+        $auxcategoria->setCategoryId('1');
+        $entity->setCategory($auxcategoria);
+        $entity->setIsActivated(true);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($auxcategoria);
+        $em->persist($entity);
+        $em->flush();
+        return $this->redirect($this->generateUrl('job_show', array('id' => $entity->getId())));
+        // }
+        return array(
+            'entity' => $entity,
             'form' => $form->createView(),
-        ));
+        );
     }
 
     /**
@@ -65,13 +75,12 @@ class JobController extends Controller
      * @Route("/{id}", name="job_show")
      * @Method("GET")
      */
-    public function showAction(Job $job)
-    {
+    public function showAction(Job $job) {
         $deleteForm = $this->createDeleteForm($job);
 
         return $this->render('job/show.html.twig', array(
-            'job' => $job,
-            'delete_form' => $deleteForm->createView(),
+                    'job' => $job,
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -81,8 +90,7 @@ class JobController extends Controller
      * @Route("/{id}/edit", name="job_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Job $job)
-    {
+    public function editAction(Request $request, Job $job) {
         $deleteForm = $this->createDeleteForm($job);
         $editForm = $this->createForm(new JobType(), $job);
         $editForm->handleRequest($request);
@@ -96,9 +104,9 @@ class JobController extends Controller
         }
 
         return $this->render('job/edit.html.twig', array(
-            'job' => $job,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+                    'job' => $job,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -108,8 +116,7 @@ class JobController extends Controller
      * @Route("/{id}", name="job_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Job $job)
-    {
+    public function deleteAction(Request $request, Job $job) {
         $form = $this->createDeleteForm($job);
         $form->handleRequest($request);
 
@@ -129,12 +136,12 @@ class JobController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Job $job)
-    {
+    private function createDeleteForm(Job $job) {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('job_delete', array('id' => $job->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
+                        ->setAction($this->generateUrl('job_delete', array('id' => $job->getJobId())))
+                        ->setMethod('DELETE')
+                        ->getForm()
         ;
     }
+
 }

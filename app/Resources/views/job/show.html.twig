@@ -12,22 +12,22 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="location">{{ entity.location }}</td>
-                    <td class="position">{{ entity.position }}</td>
-                    <td class="company">{{ entity.company }}</td>
+                    <td class="location">{{ job.getLocation() }}</td>
+                    <td class="position">{{ job.getPosition() }}</td>
+                    <td class="company">{{ job.getCompany() }}</td>
 
                     <td hidden="true" >
-                        <small>publicado {{ entity.expiresAt|date("m/d/Y") }}</small>
+                        <small>publicado {{ job.expiresAt|date("m/d/Y") }}</small>
                     </td>
                     <td>
                         <div hidden="true" style="padding: 20px 0">
                             <ul>
                                 <li>
-                                    <a href="{{ path('job_show', { 'id': entity.id })
+                                    <a href="{{ path('job_show', { 'id': job.getJobId() })
                                        }}">mostrar</a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('job_edit', { 'id': entity.id })
+                                    <a href="{{ path('job_edit', { 'id': job.getJobId() })
                                        }}">editar</a>
                                 </li>
                             </ul>

@@ -130,16 +130,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
             not_job_index:
 
-            // job_new
-            if ($pathinfo === '/job/new') {
-                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                    goto not_job_new;
+            // job_create
+            if ($pathinfo === '/job/') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_job_create;
                 }
 
-                return array (  '_controller' => 'FrontendBundle\\Controller\\JobController::newAction',  '_route' => 'job_new',);
+                return array (  '_controller' => 'FrontendBundle\\Controller\\JobController::createAction',  '_route' => 'job_create',);
             }
-            not_job_new:
+            not_job_create:
 
             // job_show
             if (preg_match('#^/job/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {

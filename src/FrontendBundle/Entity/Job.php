@@ -10,9 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="job", indexes={@ORM\Index(name="fk_job_category_idx", columns={"category_category_id"})})
  * @ORM\Entity
  */
-class Job
-{
-    
+class Job {
+
     /**
      * @var integer
      *
@@ -130,14 +129,32 @@ class Job
     /**
      * @var \Category
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Category")
+     * @ORM\ManyToOne(targetEntity="Category", cascade={"persist"})
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="category_category_id", referencedColumnName="category_id")
+     * @ORM\JoinColumn(name="category_category_id", referencedColumnName="category_id")
      * })
      */
-    private $categoryCategory;
+    private $category;
+
+    /**
+     * Set category
+     *
+     * @param \FrontendBundle\Entity\Category $category
+     * @return Job
+     */
+    public function setCategory(\FrontendBundle\Entity\Category $category = null) {
+        $this->category = $category;
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \FrontendBundle\Entity\Category
+     */
+    public function getCategory() {
+        return $this->category;
+    }
 
     function getJobId() {
         return $this->id;
@@ -201,10 +218,6 @@ class Job
 
     function getUpdatedAt() {
         return $this->updatedAt;
-    }
-
-    function getCategory() {
-        return $this->categoryCategory;
     }
 
     function setJobId($id) {
@@ -271,10 +284,4 @@ class Job
         $this->updatedAt = $updatedAt;
     }
 
-    function setCategory(\Category $categoryCategory) {
-        $this->categoryCategory = $categoryCategory;
-    }
-
-
 }
-

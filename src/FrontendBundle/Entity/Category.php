@@ -19,7 +19,7 @@ class Category
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $categoryId;
+    private $category_id;
 
     /**
      * @var string
@@ -37,7 +37,7 @@ class Category
     }
 
     function getCategoryId() {
-        return $this->categoryId;
+        return $this->category_id;
     }
 
     function getName() {
@@ -45,7 +45,7 @@ class Category
     }
 
     function setCategoryId($categoryId) {
-        $this->categoryId = $categoryId;
+        $this->category_id = $categoryId;
     }
 
     function setName($name) {
